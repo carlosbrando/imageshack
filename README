@@ -1,13 +1,34 @@
 Imageshack
 ==========
 
-Introduction goes here.
+This plugin basically upload an image to ImageShack and stores the url of the image in the database.
 
 
 Example
 =======
 
-Example goes here.
+Migration:
+
+  class CreateUsers < ActiveRecord::Migration
+    def self.up
+      create_table :users do |t|
+        t.string :name
+        t.string :photo
+      end
+    end
+  
+    def self.down
+      drop_table :users
+    end
+  end
+
+Model:
+
+  class User < ActiveRecord::Base
+    attr_accessible :name, :photo
+  
+    upload_image_to_imageshack :photo
+  end
 
 
-Copyright (c) 2010 [name of plugin creator], released under the MIT license
+Copyright (c) 2010 Carlos Brando, released under the MIT license
