@@ -1,7 +1,7 @@
 Imageshack
 ==========
 
-This plugin basically upload an image to ImageShack and stores the url of the image in the database.
+This plugin basically upload an image to ImageShack and stores the url in the database.
 
 
 Example
