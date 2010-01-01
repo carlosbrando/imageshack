@@ -14,6 +14,8 @@ module ImageShack
   module InstanceMethods
     
     def check_if_an_imageshack_field_has_changed
+      raise "You haven't added your key to ImageShack. Do this in config/initializers/imageshack_config.rb." if IMAGESHACK_KEY == "CHANGE ME"
+      
       imageshack_fields.each do |field|
         if imageshack_field_changed?(field) && can_upload_to_imageshack?(field)
           self[field] = self[field].upload_to_imageshack(IMAGESHACK_KEY)
